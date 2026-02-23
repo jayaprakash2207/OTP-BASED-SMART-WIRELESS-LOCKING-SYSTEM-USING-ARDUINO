@@ -200,6 +200,21 @@ OTP-BASED-SMART-WIRELESS-LOCKING-SYSTEM-USING-ARDUINO/
 
 ---
 
+## ⚠️ Security Notice
+
+This project is designed for **educational and prototyping purposes**. Before using in any real-world application, be aware of the following:
+
+| Issue | Risk | Recommendation |
+|-------|------|----------------|
+| **Static 4-item OTP pool** | Very low entropy — only 4 possible codes | Replace with `random(1000, 9999)` to generate dynamic OTPs |
+| **Hardcoded trigger word** | Anyone with Bluetooth access can request an OTP | Change the trigger string to something unique before deployment |
+| **No Bluetooth authentication** | Any paired device can interact with the lock | Add a secret pairing step or PIN check in the app |
+| **OTP sent over serial** | OTP is transmitted in plaintext over Bluetooth | Use an encrypted channel or hash comparison for production use |
+
+> 🔬 **This project is great for learning about Arduino, Bluetooth, and IoT concepts.** Treat it as a starting point and harden these aspects before any security-critical deployment.
+
+---
+
 ## 🔮 Future Improvements
 
 - [ ] Replace the static OTP pool with dynamically generated random numbers using `random()`
